@@ -576,6 +576,7 @@ const options = {
     { name: "American", emoji: "🍔" },
     { name: "Korean", emoji: "🍜" },
     { name: "Mexican", emoji: "🌮" },
+    { name: "Swedish", emoji: "🧆" },
     { name: "Thai", emoji: "🍲" },
     { name: "Turkish", emoji: "🥙" },
     { name: "Indian", emoji: "🍛" },
@@ -594,6 +595,7 @@ const options = {
     { value: "it", label: "Italiano", icon: "🇮🇹" },
     { value: "pt", label: "Português", icon: "🇵🇹" },
     { value: "ru", label: "Русский", icon: "🇷🇺" },
+    { value: "se", label: "Svenska", icon: "se" },
     { value: "ja", label: "日本語", icon: "🇯🇵" },
   ],
 };
