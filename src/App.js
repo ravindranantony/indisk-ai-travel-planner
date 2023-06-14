@@ -623,7 +623,7 @@ const defaultValues = {
 const Main = ({ loading, response, handleSubmit, handleChange, email }) => (
   <MainContent>
     <Title>⭐️ Travel Planner ⭐️</Title>
-    {!response && <Subtitle>Fill the form to generate your itinerary</Subtitle>}
+    {!response && <Subtitle>Fill the form to generate your itinerary and wait for a while to see the magic</Subtitle>}
 
     <ResponseContainer>
       {loading ? <Loading /> : response && <ResponseData response={response} />}
