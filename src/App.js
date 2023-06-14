@@ -624,6 +624,7 @@ const Main = ({ loading, response, handleSubmit, handleChange, email }) => (
   <MainContent>
     <Title>⭐️ Travel Planner ⭐️</Title>
     <h3>⭐️ by Indcen Resor, Stockholm ⭐️</h3>
+    <h3>⭐️ by Senthazal Ravi's Pepper Programming Students ⭐️</h3>
     {!response && <Subtitle>Fill the form to generate your itinerary and wait for a while to see the magic</Subtitle>}
 
     <ResponseContainer>
