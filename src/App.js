@@ -622,7 +622,8 @@ const defaultValues = {
 
 const Main = ({ loading, response, handleSubmit, handleChange, email }) => (
   <MainContent>
-    <Title>⭐️ Travel Planner by Indcen Resor, Stockholm ⭐️</Title>
+    <Title>⭐️ Travel Planner ⭐️</Title>
+    <h3>⭐️ by Indcen Resor, Stockholm ⭐️</h3>
     {!response && <Subtitle>Fill the form to generate your itinerary and wait for a while to see the magic</Subtitle>}
 
     <ResponseContainer>
