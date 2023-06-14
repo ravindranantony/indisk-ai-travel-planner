@@ -530,6 +530,7 @@ const options = {
     { name: "Art", emoji: "🎨" },
     { name: "Food", emoji: "🍴" },
     { name: "Music", emoji: "🎵" },
+    { name: "Temples", emoji: "🛕" },
     { name: "Nature", emoji: "🌳" },
     { name: "Sports", emoji: "⚽" },
     { name: "Photography", emoji: "📷" },
@@ -544,6 +545,7 @@ const options = {
     "Music",
     "Nature",
     "Sports",
+    "Temples",
     "Photography",
     "Architecture",
     "Literature",
@@ -601,15 +603,17 @@ const options = {
 };
 
 const topLocations = [
+  { name: "Stockholm, Sweden", value: "Stockholm/Sweden" },
   { name: "Milano, Italy", value: "Milano/Italy" },
   { name: "Paris, France", value: "Paris/France" },
+  { name: "Chennai, India", value: "Chennai/India" },
   { name: "Los Angeles, CA", value: "Los Angeles/California" },
   // add more top locations as needed
 ];
 
 const defaultValues = {
   destinationCountry: "",
-  budget: "250 USD",
+  budget: "500 USD",
   travelStyle: options.travelStyles[0],
   interestsNew: [],
   accommodationType: options.accommodationTypes[0],
@@ -623,7 +627,6 @@ const defaultValues = {
 const Main = ({ loading, response, handleSubmit, handleChange, email }) => (
   <MainContent>
     <Title>⭐️ Travel Planner ⭐️</Title>
-    <h3>⭐️ by Indcen Resor, Stockholm ⭐️</h3>
     <h3>⭐️ by Senthazal Ravi's Pepper Programming Students ⭐️</h3>
     {!response && <Subtitle>Fill the form to generate your itinerary and wait for a while to see the magic</Subtitle>}
 
