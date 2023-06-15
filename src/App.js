@@ -535,6 +535,7 @@ const options = {
     { name: "Sports", emoji: "⚽" },
     { name: "Photography", emoji: "📷" },
     { name: "Architecture", emoji: "🏰" },
+    { name: "Adult Things", emoji: "ⓧ" },
     { name: "Literature", emoji: "📚" },
   ],
 
@@ -560,6 +561,13 @@ const options = {
     "Camping",
     "Homestay",
     "Bed and Breakfast",
+  ],
+  transportationTypes: [
+    "Car",
+    "Train",
+    "Bus",
+    "Public Transport",
+    "Waking",
   ],
   activityTypes: [
     "Outdoor",
@@ -597,7 +605,8 @@ const options = {
     { value: "it", label: "Italiano", icon: "🇮🇹" },
     { value: "pt", label: "Português", icon: "🇵🇹" },
     { value: "ru", label: "Русский", icon: "🇷🇺" },
-    { value: "se", label: "Svenska", icon: "se" },
+    { value: "se", label: "Svenska", icon: " 🇸🇪" },
+    { value: "ta", label: "Tamil", icon: "🇮🇳" },
     { value: "ja", label: "日本語", icon: "🇯🇵" },
   ],
 };
@@ -617,7 +626,7 @@ const defaultValues = {
   travelStyle: options.travelStyles[0],
   interestsNew: [],
   accommodationType: options.accommodationTypes[0],
-  transportationType: "Bus",
+  transportationType: options.accommodationTypes[0],
   activityType: [options.activityTypes[0]],
   cuisineType: options.cuisineTypes[0],
   tripDuration: "3",
@@ -627,7 +636,7 @@ const defaultValues = {
 const Main = ({ loading, response, handleSubmit, handleChange, email }) => (
   <MainContent>
     <Title>⭐️ Travel Planner ⭐️</Title>
-    <h3>⭐️ by Senthazal Ravi's Pepper Programming Students ⭐️</h3>
+    <h3>⭐️ Senthazal Ravi's Pepper Programming Students ⭐️</h3>
     {!response && <Subtitle>Fill the form to generate your itinerary and wait for a while to see the magic</Subtitle>}
 
     <ResponseContainer>
@@ -992,29 +1001,23 @@ const AITravelPlanner = () => {
                   ))}
                 </Select>
               </FormGroup>
-            </FormRow>
-
-            <Label htmlFor="transportationType">
-              Transportation Type
-              <p
-                style={{
-                  display: "inline-block",
-                  fontSize: "10px",
-
-                  color: "#666",
-                }}
-              >
-                (e.g. car, train, bus, etc.)
-              </p>
-            </Label>
-            <Input
-              type="text"
-              id="transportationType"
-              name="transportationType"
-              value={values.transportationType}
-              onChange={handleChange}
-              required
-            />
+            
+              <FormGroup>
+                <Label htmlFor="transportationType">Transportation</Label>
+                <Select
+                  id="transportationType"
+                  name="transportationType"
+                  value={values.transportationType}
+                  onChange={handleChange}
+                >
+                  {options.transportationTypes.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </Select>
+              </FormGroup>
+              </FormRow>
 
             <Label htmlFor="activityType">
               Activity Type
