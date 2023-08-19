@@ -568,7 +568,7 @@ const options = {
     "Train",
     "Bus",
     "Public Transport",
-    "Waking",
+    "Walking",
   ],
   activityTypes: [
     "Outdoor",
