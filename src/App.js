@@ -3,7 +3,6 @@ import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import styled from "styled-components";
 
 const Container = styled.div`
-  flex: 2;
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -531,12 +530,10 @@ const options = {
     { name: "Art", emoji: "🎨" },
     { name: "Food", emoji: "🍴" },
     { name: "Music", emoji: "🎵" },
-    { name: "Temples", emoji: "🛕" },
     { name: "Nature", emoji: "🌳" },
     { name: "Sports", emoji: "⚽" },
     { name: "Photography", emoji: "📷" },
     { name: "Architecture", emoji: "🏰" },
-    { name: "Adult Things", emoji: "ⓧ" },
     { name: "Literature", emoji: "📚" },
   ],
 
@@ -547,7 +544,6 @@ const options = {
     "Music",
     "Nature",
     "Sports",
-    "Temples",
     "Photography",
     "Architecture",
     "Literature",
@@ -562,13 +558,6 @@ const options = {
     "Camping",
     "Homestay",
     "Bed and Breakfast",
-  ],
-  transportationTypes: [
-    "Car",
-    "Train",
-    "Bus",
-    "Public Transport",
-    "Waking",
   ],
   activityTypes: [
     "Outdoor",
@@ -587,7 +576,6 @@ const options = {
     { name: "American", emoji: "🍔" },
     { name: "Korean", emoji: "🍜" },
     { name: "Mexican", emoji: "🌮" },
-    { name: "Swedish", emoji: "🧆" },
     { name: "Thai", emoji: "🍲" },
     { name: "Turkish", emoji: "🥙" },
     { name: "Indian", emoji: "🍛" },
@@ -606,28 +594,24 @@ const options = {
     { value: "it", label: "Italiano", icon: "🇮🇹" },
     { value: "pt", label: "Português", icon: "🇵🇹" },
     { value: "ru", label: "Русский", icon: "🇷🇺" },
-    { value: "se", label: "Svenska", icon: " 🇸🇪" },
-    { value: "ta", label: "Tamil", icon: "🇮🇳" },
     { value: "ja", label: "日本語", icon: "🇯🇵" },
   ],
 };
 
 const topLocations = [
-  { name: "Stockholm, Sweden", value: "Stockholm/Sweden" },
-  { name: "Milano, Italy", value: "Milano/Italy" },
-  { name: "Paris, France", value: "Paris/France" },
-  { name: "Chennai, India", value: "Chennai/India" },
-  { name: "Los Angeles, CA", value: "Los Angeles/California" },
+  { name: "Doha, Qatar", value: "Milano/Italy" },
+  { name: "Dubai, UAE", value: "Paris/France" },
+  { name: "Chennai, India", value: "Los Angeles/California" },
   // add more top locations as needed
 ];
 
 const defaultValues = {
   destinationCountry: "",
-  budget: "500 USD",
+  budget: "250 USD",
   travelStyle: options.travelStyles[0],
   interestsNew: [],
   accommodationType: options.accommodationTypes[0],
-  transportationType: options.accommodationTypes[0],
+  transportationType: "Bus",
   activityType: [options.activityTypes[0]],
   cuisineType: options.cuisineTypes[0],
   tripDuration: "3",
@@ -636,9 +620,8 @@ const defaultValues = {
 
 const Main = ({ loading, response, handleSubmit, handleChange, email }) => (
   <MainContent>
-    <Title>⭐️ Travel Planner ⭐️</Title>
-    <h3>⭐️ Senthazal Ravi's Pepper Programming Students ⭐️</h3>
-    {!response && <Subtitle>Fill the form to generate your itinerary and wait for a while to see the magic</Subtitle>}
+    <Title>⭐️ Sweden CBI Travel Planner ⭐️</Title>
+    {!response && <Subtitle>Fill the form to generate your itinerary</Subtitle>}
 
     <ResponseContainer>
       {loading ? <Loading /> : response && <ResponseData response={response} />}
@@ -1002,23 +985,29 @@ const AITravelPlanner = () => {
                   ))}
                 </Select>
               </FormGroup>
-            
-              <FormGroup>
-                <Label htmlFor="transportationType">Transportation</Label>
-                <Select
-                  id="transportationType"
-                  name="transportationType"
-                  value={values.transportationType}
-                  onChange={handleChange}
-                >
-                  {options.transportationTypes.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </Select>
-              </FormGroup>
-              </FormRow>
+            </FormRow>
+
+            <Label htmlFor="transportationType">
+              Transportation Type
+              <p
+                style={{
+                  display: "inline-block",
+                  fontSize: "10px",
+
+                  color: "#666",
+                }}
+              >
+                (e.g. car, train, bus, etc.)
+              </p>
+            </Label>
+            <Input
+              type="text"
+              id="transportationType"
+              name="transportationType"
+              value={values.transportationType}
+              onChange={handleChange}
+              required
+            />
 
             <Label htmlFor="activityType">
               Activity Type
